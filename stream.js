@@ -9,6 +9,7 @@ class Stream extends EventEmitter {
   }
 
   parse(buffer) {
+    console.log(`Got ${buffer.length}B buffer`);
     this.buffer += buffer.toString('utf8');
     let index;
     let json;
@@ -19,6 +20,8 @@ class Stream extends EventEmitter {
       if (json.length > 0) {
         try {
           json = JSON.parse(json);
+          console.log(`Emitting ${json.event || 'data'} with json body`);
+          console.log(json);
           this.emit(json.event || 'data', json);
         } catch (error) {
           error.source = json;
