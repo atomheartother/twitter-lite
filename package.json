@@ -46,14 +46,9 @@
   },
   "scripts": {
     "lint": "eslint ./",
-    "prepare": "microbundle",
+    "install": "microbundle",
     "test": "eslint . && jest --detectOpenHandles",
     "release": "npm run -s prepare && npm test && git tag $npm_package_version && git push && git push --tags && npm publish"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "eslint ."
-    }
   },
   "jest": {
     "testEnvironment": "node"
