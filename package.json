@@ -46,7 +46,7 @@
   },
   "scripts": {
     "lint": "eslint ./",
-    "install": "microbundle",
+    "prepare": "microbundle",
     "test": "eslint . && jest --detectOpenHandles",
     "release": "npm run -s prepare && npm test && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
